@@ -20,7 +20,7 @@ STARTUP_SRC := $(BUILD_RESOURCES_DIR)/startup_stm32f411retx.s
 all: $(BUILD_ARTIFACT)
 
 obj_dir:
-	mkdir Debug/Obj
+	mkdir -p Debug/Obj
 
 $(OBJ_S): $(STARTUP_SRC) obj_dir
 	$(CC) -mcpu=cortex-m4 -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"$(OBJ_DIR)/startup_stm32f411retx.d" -MT"$(OBJ_DIR)/startup_stm32f411retx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$(OBJ_DIR)/startup_stm32f411retx.o" "$(STARTUP_SRC)"
